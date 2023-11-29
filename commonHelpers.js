@@ -4,7 +4,7 @@ import{a}from"./assets/vendor-a61d8330.js";(function(){const s=document.createEl
       <div class="cat-details">
         <h2 class="cat-name">${e.breeds[0].name}</h2>
         <p class="cat-description">${e.breeds[0].description}</p>
-        <p class="cat-temperament"><bold>Temperament: ${e.breeds[0].temperament}</p>
+        <p class="cat-temperament">Temperament: ${e.breeds[0].temperament}</p>
       </div>
     </div>
   `}function y(e){r.catInfo.innerHTML=p(e),r.loader.style.display="none",r.catInfo.style.display="block"}function i(){r.loader.style.display="none",r.breedSelect.style.display="none",r.catInfo.style.display="none",r.errorMessage.style.display="block"}function m(e){const s=e.target.value;r.loader.style.display="block",r.catInfo.style.display="none",f(s).then(o=>{y(o),r.errorMessage.style.display="none"}).catch(o=>{i(),console.error("Error fetching cat info:",o)})}function h(){u().then(e=>{console.log("Fetched Breeds:",e),e.forEach(s=>{const o=document.createElement("option");o.value=s.id,o.textContent=s.name,r.breedSelect.appendChild(o)}),r.breedSelect.addEventListener("change",m)}).catch(e=>{console.error("Error fetching breeds:",e),i()})}h();
