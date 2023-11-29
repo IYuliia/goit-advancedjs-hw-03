@@ -17,7 +17,7 @@ function createMarkup(cat) {
       <div class="cat-details">
         <h2 class="cat-name">${cat.breeds[0].name}</h2>
         <p class="cat-description">${cat.breeds[0].description}</p>
-        <p class="cat-temperament"><bold>Temperament: ${cat.breeds[0].temperament}</p>
+        <p class="cat-temperament">Temperament: ${cat.breeds[0].temperament}</p>
       </div>
     </div>
   `;
