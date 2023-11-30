@@ -27,6 +27,7 @@ function displayCatInfo(cat) {
   elements.catInfo.innerHTML = createMarkup(cat);
   elements.loader.style.display = 'none';
   elements.catInfo.style.display = 'block';
+  elements.breedSelect.style.display = 'block';
 }
 
 function showError() {
@@ -39,6 +40,7 @@ function showError() {
 function handleBreedChange(event) {
   const selectedBreedId = event.target.value;
   elements.loader.style.display = 'block';
+  elements.breedSelect.style.display = 'none';
   elements.catInfo.style.display = 'none';
 
   fetchCatByBreed(selectedBreedId)
@@ -53,6 +55,9 @@ function handleBreedChange(event) {
 }
 
 function loadBreed() {
+  elements.loader.style.display = 'block';
+  elements.breedSelect.style.display = 'none';
+  elements.catInfo.style.display = 'none';
   fetchBreeds()
     .then(breeds => {
       console.log('Fetched Breeds:', breeds);
@@ -65,6 +70,8 @@ function loadBreed() {
       });
 
       elements.breedSelect.addEventListener('change', handleBreedChange);
+      elements.loader.style.display = 'none';
+      elements.breedSelect.style.display = 'block';
     })
     .catch(error => {
       console.error('Error fetching breeds:', error);
